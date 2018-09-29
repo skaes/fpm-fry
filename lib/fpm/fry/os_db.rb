@@ -27,7 +27,8 @@ module FPM; module Fry
       codenames: {
         'precise' => '12.04',
         'trusty'  => '14.04',
-        'xenial'  => '16.04'
+        'xenial'  => '16.04',
+        'bionic'  => '18.04'
       },
       flavour: 'debian'
     }
