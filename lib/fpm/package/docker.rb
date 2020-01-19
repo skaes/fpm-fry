@@ -25,13 +25,13 @@ class FPM::Package::Docker < FPM::Package
 
   def split( name, map )
     changes = changes(name)
-    changes.remove_modified_leaves! do | kind, ml |
-      if kind == DELETED
-        @logger.warn("Found a deleted file. You can only create new files in a package",name: ml)
-      else
-        @logger.warn("Found a modified file. You can only create new files in a package",name: ml)
-      end
-    end
+    # changes.remove_modified_leaves!( '/', map ) do | kind, ml |
+    #   if kind == DELETED
+    #     @logger.warn("Found a deleted file. You can only create new files in a package",name: ml)
+    #   else
+    #     @logger.warn("Found a modified file. You can only create new files in a package",name: ml)
+    #   end
+    # end
     fmap = {}
     changes.leaves.each do | change |
       map.each do | match, to |
