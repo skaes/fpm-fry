@@ -106,6 +106,7 @@ module FPM; module Fry
             if options[:update]
               update = 'apt-get update && '
             end
+            df << "ENV DEBIAN_FRONTEND=noninteractive"
             df << "RUN #{update}apt-get install --yes #{Shellwords.join(build_dependencies)}"
           when 'redhat'
             df << "RUN yum -y install #{Shellwords.join(build_dependencies)}"
